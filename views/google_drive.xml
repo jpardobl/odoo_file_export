@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="odoo_file_export.google_drive_form_view" model="ir.ui.view">
+            <field name="name">odoo_file_export.google_drive.form</field>
+            <field name="model">odoo_file_export.google_drive</field>
+            <field name="arch" type="xml">
+                <form string="Google Drive Upload">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="file"/>
+                            <h1>
+                                <field name="file" placeholder="file.csv"/>
+                            </h1>
+                        </div>
+                         <div class="oe_title">
+                            <label for="file_mime_type"/>
+                            <h1>
+                                <field name="file_mime_type"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="target_folder_id"/>
+                            <h1>
+                                <field name="target_folder_id" placeholder="34KORMNWFJOWNEF232EWMDKOWME"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="convet_to_google_format"/>
+                            <h1>
+                                <field name="convet_to_google_format"/>
+                            </h1>
+                        </div>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="google_drive_tree_view" model="ir.ui.view">
+            <field name="name">odoo_file_export.google_drive.tree</field>
+            <field name="model">odoo_file_export.google_drive</field>
+            <field name="arch" type="xml">
+                <tree string="Google Drive Upload">
+                    <field name="name"/>
+                    <field name="file"/>
+                    <field name="file_mime_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="google_drive_search_view" model="ir.ui.view">
+            <field name="name">odoo_file_export.google_drive.search</field>
+            <field name="model">odoo_file_export.google_drive</field>
+            <field name="arch" type="xml">
+                <search string="Google Drive Upload">
+                    <field name="name"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Name" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="google_drive_act_window" model="ir.actions.act_window">
+            <field name="name">Upload</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo_file_export.google_drive</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Extract.
+                </p>
+            </field>
+        </record>
+
+        <record id="google_drive_act_upload" model="ir.actions.server">
+            <field name="name">Upload</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="odoo_file_export.model_odoo_file_export_google_drive"/>
+            <field name="binding_model_id" ref="odoo_file_export.model_odoo_file_export_google_drive"/>
+            <field name="binding_view_types">list,form</field>
+            <field name="state">code</field>
+            <field name="code">
+                record.upload()
+            </field>
+        </record>
+      
+
+        <menuitem name="Google Drive Upload" id="google_drive_menu"/>
+        <menuitem id="Uploads" parent="google_drive_menu" name="Uplodas" action="google_drive_act_window"/>
+
+    </data>
+</odoo>

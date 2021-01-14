@@ -12,7 +12,7 @@ Upload files from Odoo to multiple cloud file services
     """,
     'depends': ['mail'],
     'data': [
-        'views/extract.xml',
+        'views/google_drive.xml',
         'views/settings.xml',
         'security/ir.model.access.csv'
     ],

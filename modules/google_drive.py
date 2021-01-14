@@ -63,8 +63,7 @@ class GoogleDrive(models.Model):
                 f.SetContentFile(record.file)
                 f.Upload(param={
                     'convert': record.convet_to_google_format,
-                    'parents': [{'id': record.target_folder_id, }, ] if record.target_folder_id not is None \
-                            else None
+                    'parents': [{'id': record.target_folder_id}]
                 })
                 record.google_drive_file_id = f['id']
                 _logger.info("Uploaded extract: {}".format(record.file))
