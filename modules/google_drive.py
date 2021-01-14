@@ -20,7 +20,7 @@ _logger = logging.getLogger(__name__)
 #TODO add requirements.txt [pydrive] to module root
 #TODO add credentials tool to the module
 
-class GoogleDrive(models.Model):
+class GoogleDriveUpload(models.Model):
     _name = 'odoo_file_export.google_drive'
     _description = 'Google Drive File Upload'
 
@@ -42,7 +42,7 @@ class GoogleDrive(models.Model):
         except FileNotUploadedError:
             pass
 
-    def upload_to_gdrive(self, overwrite=True, remove_local_data_file=True):
+    def upload(self, overwrite=True, remove_local_data_file=True):
         settings_file = self.env['res.config.settings'].browse().gdrive_settings_file_name()
         _logger.debug("Reading gdrive settings: {}".format(settings_file))
         gauth = GoogleAuth(settings_file=settings_file)
@@ -51,21 +51,26 @@ class GoogleDrive(models.Model):
         for record in self:
             try:
                 if not os.path.exists(record.file):
-                    _logger.info("Cannot find extract file ({}), thus not uploading".format(record.full_path()))
+                    _logger.error("Cannot find extract file ({}), thus not uploading".format(record.file))
                     continue
                 if overwrite and record.google_drive_file_id:
                     record._delete_gdrive_file(gdrive_client, record.google_drive_file_id)
-
-                f = gdrive_client.CreateFile({
+                
+                params = {
                     'title': record.target_file_name, 
-                    'mimeType': record.file_mime_type
-                })
+                    'mimeType': record.file_mime_type,
+                    
+                }
+                if not self.target_folder_id is False:
+                    params['parents'] = [{'id': record.target_folder_id}]
+
+                _logger.debug("Uploading file to Google Drive with params: {}".format(params))
+                f = gdrive_client.CreateFile(params)
                 f.SetContentFile(record.file)
                 f.Upload(param={
-                    'convert': record.convet_to_google_format,
-                    'parents': [{'id': record.target_folder_id}]
+                    'convert': record.convet_to_google_format
                 })
-                record.google_drive_file_id = f['id']
+                self.google_drive_file_id = f['id']
                 _logger.info("Uploaded extract: {}".format(record.file))
 
                 if remove_local_data_file: os.unlink(record.file)
