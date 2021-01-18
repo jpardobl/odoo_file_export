@@ -16,8 +16,6 @@ _logger = logging.getLogger(__name__)
 
 
 #TODO post messages to the screen
-#TODO allow select target gdrive folder 
-#TODO add requirements.txt [pydrive] to module root
 #TODO add credentials tool to the module
 
 class GoogleDriveUpload(models.Model):

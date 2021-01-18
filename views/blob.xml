@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="odoo_file_export.google_drive_form_view" model="ir.ui.view">
-            <field name="name">odoo_file_export.google_drive.form</field>
-            <field name="model">odoo_file_export.google_drive</field>
+        <record id="odoo_file_export.blob_form_view" model="ir.ui.view">
+            <field name="name">odoo_file_export.blob.form</field>
+            <field name="model">odoo_file_export.blob</field>
             <field name="arch" type="xml">
-                <form string="Google Drive Upload">
+                <form string="Blob Upload">
                     <sheet>
                         <div class="oe_title">
                             <label for="name"/>
@@ -20,46 +20,50 @@
                             </h1>
                         </div>
                          <div class="oe_title">
-                            <label for="file_mime_type"/>
+                            <label for="storage_account_url"/>
                             <h1>
-                                <field name="file_mime_type"/>
+                                <field name="storage_account_url"/>
                             </h1>
                         </div>
                         <div class="oe_title">
-                            <label for="target_folder_id"/>
+                            <label for="container"/>
                             <h1>
-                                <field name="target_folder_id" placeholder="34KORMNWFJOWNEF232EWMDKOWME"/>
+                                <field name="container" placeholder="mi_container"/>
                             </h1>
                         </div>
                         <div class="oe_title">
-                            <label for="convet_to_google_format"/>
+                            <label for="blob_name"/>
                             <h1>
-                                <field name="convet_to_google_format"/>
+                                <field name="blob_name" placeholder="mi_blob/>
                             </h1>
                         </div>
-                        
+                        <div class="oe_title">
+                            <label for="credential"/>
+                            <h1>
+                                <field name="credential" placeholder="knsf8934jrokmw0i9rj23weokfmwse"/>
+                            </h1
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record id="google_drive_tree_view" model="ir.ui.view">
-            <field name="name">odoo_file_export.google_drive.tree</field>
-            <field name="model">odoo_file_export.google_drive</field>
+        <record id="blob_tree_view" model="ir.ui.view">
+            <field name="name">odoo_file_export.blob.tree</field>
+            <field name="model">odoo_file_export.blob</field>
             <field name="arch" type="xml">
-                <tree string="Google Drive Upload">
+                <tree string="Blob Upload">
                     <field name="name"/>
                     <field name="file"/>
-                    <field name="file_mime_type"/>
+                    <field name="blob_name"/>
                 </tree>
             </field>
         </record>
 
-        <record id="google_drive_search_view" model="ir.ui.view">
-            <field name="name">odoo_file_export.google_drive.search</field>
-            <field name="model">odoo_file_export.google_drive</field>
+        <record id="blob_search_view" model="ir.ui.view">
+            <field name="name">odoo_file_export.blob.search</field>
+            <field name="model">odoo_file_export.blob</field>
             <field name="arch" type="xml">
-                <search string="Google Drive Upload">
+                <search string="Blob Upload">
                     <field name="name"/>
                     <group expand="1" string="Group By">
                         <filter string="Name" name="name" domain="[]"
@@ -69,10 +73,10 @@
             </field>
         </record>
 
-        <record id="google_drive_act_window" model="ir.actions.act_window">
+        <record id="blob_act_window" model="ir.actions.act_window">
             <field name="name">Upload</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">odoo_file_export.google_drive</field>
+            <field name="res_model">odoo_file_export.blob</field>
 
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
@@ -82,21 +86,17 @@
             </field>
         </record>
 
-        <record id="google_drive_act_upload" model="ir.actions.server">
+        <record id="blob_act_upload" model="ir.actions.server">
             <field name="name">Upload</field>
             <field name="type">ir.actions.server</field>
-            <field name="model_id" ref="odoo_file_export.model_odoo_file_export_google_drive"/>
-            <field name="binding_model_id" ref="odoo_file_export.model_odoo_file_export_google_drive"/>
+            <field name="model_id" ref="odoo_file_export.model_odoo_file_export_blob"/>
+            <field name="binding_model_id" ref="odoo_file_export.model_odoo_file_export_blob"/>
             <field name="binding_view_types">list,form</field>
             <field name="state">code</field>
             <field name="code">
                 record.upload()
             </field>
         </record>
-      
-<!--
-        <menuitem name="File Export" id="file_export_menu"/>
-        <menuitem id="Google Drive Upload" parent="file_export_menu" name="Google Drive Uploads" action="google_drive_act_window"/>
--->
+
     </data>
 </odoo>
