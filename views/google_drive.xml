@@ -76,7 +76,7 @@
         </record>
 
         <record id="google_drive_act_window" model="ir.actions.act_window">
-            <field name="name">Upload</field>
+            <field name="name">Google Drive Upload</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">odoo_file_export.google_drive</field>
 
