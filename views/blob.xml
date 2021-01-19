@@ -13,31 +13,31 @@
                                 <field name="name" placeholder="Name"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
+                        <div>
                             <label for="file"/>
                             <h1>
                                 <field name="file" placeholder="file.csv"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
+                        <div>
                             <label for="storage_account_url"/>
                             <h1>
                                 <field name="storage_account_url"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
+                        <div>
                             <label for="container"/>
                             <h1>
                                 <field name="container" placeholder="mi_container"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
+                        <div>
                             <label for="blob_name"/>
                             <h1>
                                 <field name="blob_name" placeholder="mi_blob"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
+                        <div>
                             <label for="credential"/>
                             <h1>
                                 <field name="credential" placeholder="knsf8934jrokmw0i9rj23weokfmwse"/>

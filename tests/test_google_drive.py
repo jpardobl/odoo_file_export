@@ -7,7 +7,6 @@ import pandas as pd
 import yaml
 from mimesis.enums import Gender
 from mimesis.schema import Field, Schema
-from odoo.addons.extract.models import res_config_settings
 from odoo.tests.common import TransactionCase
 from odoo.tools.config import config
 from pydrive.auth import GoogleAuth
@@ -55,7 +54,7 @@ class TestGoogleDriveUpload(TransactionCase):
         })
 
 
-    def test_upload_to_gdrive(self):
+    def off_test_upload_to_gdrive(self):
         
                 
         gauth = GoogleAuth(settings_file=self.cc.gdrive_settings_file_name())
