@@ -32,6 +32,12 @@
                             </h1>
                         </div>
                         <div class="oe_title">
+                            <label for="target_file_name"/>
+                            <h1>
+                                <field name="target_file_name" placeholder="file name"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
                             <label for="convet_to_google_format"/>
                             <h1>
                                 <field name="convet_to_google_format"/>
@@ -94,9 +100,9 @@
             </field>
         </record>
       
-<!--
+
         <menuitem name="File Export" id="file_export_menu"/>
-        <menuitem id="Google Drive Upload" parent="file_export_menu" name="Google Drive Uploads" action="google_drive_act_window"/>
--->
+        <menuitem id="google_drive_upload" parent="file_export_menu" name="Google Drive Uploads" action="google_drive_act_window"/>
+
     </data>
 </odoo>

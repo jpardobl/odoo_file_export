@@ -39,7 +39,6 @@ class TestGoogleDriveUpload(TransactionCase):
         result = schema.create(iterations=1000)     
         pd.DataFrame.from_dict(result).to_csv(_data_path)
 
-
         self.blob = self.env['odoo_file_export.blob'].create({
             'name': 'Prueba',
             'file': _data_path,
@@ -72,13 +71,8 @@ class TestGoogleDriveUpload(TransactionCase):
             self.blob.upload(remove_local_data_file=False)
         except ResourceExistsError:
             self.fail("Ha dado un error de blob existente, cuando deberia haberlo sobreescrito")
-            
-        assert os.path.exists(_data_path), "Ha borrado el fichero local tras la subida a Blob storage"
 
-        _logger.debug("TEST: Se sube un fichero que ya existe y da un error porque no se pide sobreescribir")
-        with self.assertRaises(ResourceExistsError,
-                   msg="Deberia haber avisado de que el blob ya existe porque no se ha pedido sobreescribir"): 
-            self.blob.upload(remove_local_data_file=False, overwrite=False)
+        assert os.path.exists(_data_path), "Ha borrado el fichero local tras la subida a Blob storage"
 
         _logger.debug("TEST: Se sube un fichero sobreescribiendo y borrando la copia local")
         self.blob.upload()

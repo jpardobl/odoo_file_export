@@ -14,7 +14,8 @@ Upload files from Odoo to multiple cloud file services
     'data': [
         'views/google_drive.xml',
         'views/settings.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'views/blob.xml'
     ],
 
     'demo': [],

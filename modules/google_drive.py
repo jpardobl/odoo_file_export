@@ -46,10 +46,12 @@ class GoogleDriveUpload(models.Model):
         gauth = GoogleAuth(settings_file=settings_file)
         gdrive_client = GoogleDrive(gauth)
 
+        
         for record in self:
             try:
-                if not os.path.exists(record.file):
-                    _logger.error("Cannot find extract file ({}), thus not uploading".format(record.file))
+                file_full_path = os.path.join(config.get('data_dir'), record.file)
+                if not os.path.exists(file_full_path):
+                    _logger.error("Cannot find extract file ({}), thus not uploading".format(file_full_path))
                     continue
                 if overwrite and record.google_drive_file_id:
                     record._delete_gdrive_file(gdrive_client, record.google_drive_file_id)
@@ -64,14 +66,14 @@ class GoogleDriveUpload(models.Model):
 
                 _logger.debug("Uploading file to Google Drive with params: {}".format(params))
                 f = gdrive_client.CreateFile(params)
-                f.SetContentFile(record.file)
+                f.SetContentFile(file_full_path)
                 f.Upload(param={
                     'convert': record.convet_to_google_format
                 })
                 self.google_drive_file_id = f['id']
-                _logger.info("Uploaded extract: {}".format(record.file))
+                _logger.info("Uploaded extract: {}".format(file_full_path))
 
-                if remove_local_data_file: os.unlink(record.file)
+                if remove_local_data_file: os.unlink(file_full_path)
 
             except Exception as ex:
                 _logger.error("Error uploading extract to gdrive: {}".format(ex))            

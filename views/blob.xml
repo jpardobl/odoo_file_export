@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Blob Upload">
                     <sheet>
-                        <div class="oe_title">
+                        <div>
                             <label for="name"/>
                             <h1>
                                 <field name="name" placeholder="Name"/>
@@ -19,7 +19,7 @@
                                 <field name="file" placeholder="file.csv"/>
                             </h1>
                         </div>
-                         <div class="oe_title">
+                        <div class="oe_title">
                             <label for="storage_account_url"/>
                             <h1>
                                 <field name="storage_account_url"/>
@@ -34,19 +34,19 @@
                         <div class="oe_title">
                             <label for="blob_name"/>
                             <h1>
-                                <field name="blob_name" placeholder="mi_blob/>
+                                <field name="blob_name" placeholder="mi_blob"/>
                             </h1>
                         </div>
                         <div class="oe_title">
                             <label for="credential"/>
                             <h1>
                                 <field name="credential" placeholder="knsf8934jrokmw0i9rj23weokfmwse"/>
-                            </h1
+                            </h1>
+                        </div>
                     </sheet>
                 </form>
             </field>
         </record>
-
         <record id="blob_tree_view" model="ir.ui.view">
             <field name="name">odoo_file_export.blob.tree</field>
             <field name="model">odoo_file_export.blob</field>
@@ -58,7 +58,6 @@
                 </tree>
             </field>
         </record>
-
         <record id="blob_search_view" model="ir.ui.view">
             <field name="name">odoo_file_export.blob.search</field>
             <field name="model">odoo_file_export.blob</field>
@@ -66,26 +65,20 @@
                 <search string="Blob Upload">
                     <field name="name"/>
                     <group expand="1" string="Group By">
-                        <filter string="Name" name="name" domain="[]"
-                                context="{'group_by':'name'}"/>
+                        <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
                     </group>
                 </search>
             </field>
         </record>
-
         <record id="blob_act_window" model="ir.actions.act_window">
             <field name="name">Upload</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">odoo_file_export.blob</field>
-
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new Extract.
-                </p>
+                <p class="oe_view_nocontent_create">                    There is no examples click here to add new Extract.                </p>
             </field>
         </record>
-
         <record id="blob_act_upload" model="ir.actions.server">
             <field name="name">Upload</field>
             <field name="type">ir.actions.server</field>
@@ -93,10 +86,11 @@
             <field name="binding_model_id" ref="odoo_file_export.model_odoo_file_export_blob"/>
             <field name="binding_view_types">list,form</field>
             <field name="state">code</field>
-            <field name="code">
-                record.upload()
-            </field>
+            <field name="code">                
+                 record.upload()            
+                 </field>
         </record>
 
+        <menuitem id="blob_upload" parent="file_export_menu" name="Blob Uploads" action="blob_act_window"/>
     </data>
 </odoo>
