@@ -88,8 +88,8 @@
             </field>
         </record>
 
-        <record id="google_drive_act_upload" model="ir.actions.server">
-            <field name="name">Upload</field>
+        <record id="google_drive_act_extract" model="ir.actions.server">
+            <field name="name">Extract</field>
             <field name="type">ir.actions.server</field>
             <field name="model_id" ref="odoo_file_export.model_odoo_file_export_google_drive"/>
             <field name="binding_model_id" ref="odoo_file_export.model_odoo_file_export_google_drive"/>
