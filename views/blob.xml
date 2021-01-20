@@ -8,39 +8,39 @@
                 <form string="Blob Upload">
                     <sheet>
                         <div>
-                            <label for="name"/>
+                            <label for="name" class="o_td_label"/>
                             <h1>
-                                <field name="name" placeholder="Name"/>
+                                <field name="name" class="o_form_label o_required_modifier" placeholder="Name"/>
                             </h1>
                         </div>
                         <div>
-                            <label for="file"/>
+                            <label for="file" class="o_td_label"/>
                             <h1>
-                                <field name="file" placeholder="file.csv"/>
+                                <field name="file" placeholder="file.csv" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
                         <div>
-                            <label for="storage_account_url"/>
+                            <label for="storage_account_url" class="o_td_label"/>
                             <h1>
-                                <field name="storage_account_url"/>
+                                <field name="storage_account_url" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
                         <div>
-                            <label for="container"/>
+                            <label for="container" class="o_td_label"/>
                             <h1>
-                                <field name="container" placeholder="mi_container"/>
+                                <field name="container" placeholder="mi_container" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
                         <div>
-                            <label for="blob_name"/>
+                            <label for="blob_name" class="o_td_label"/>
                             <h1>
-                                <field name="blob_name" placeholder="mi_blob"/>
+                                <field name="blob_name" placeholder="mi_blob" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
                         <div>
-                            <label for="credential"/>
+                            <label for="credential" class="o_td_label"/>
                             <h1>
-                                <field name="credential" placeholder="knsf8934jrokmw0i9rj23weokfmwse"/>
+                                <field name="credential" placeholder="knsf8934jrokmw0i9rj23weokfmwse" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
                     </sheet>

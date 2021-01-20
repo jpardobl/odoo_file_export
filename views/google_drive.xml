@@ -7,41 +7,41 @@
             <field name="arch" type="xml">
                 <form string="Google Drive Upload">
                     <sheet>
-                        <div class="oe_title">
-                            <label for="name"/>
+                        <div>
+                            <label for="name" class="o_td_label"/>
                             <h1>
-                                <field name="name" placeholder="Name"/>
+                                <field name="name" placeholder="Name" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
-                            <label for="file"/>
+                        <div>
+                            <label for="file" class="o_td_label"/>
                             <h1>
-                                <field name="file" placeholder="file.csv"/>
+                                <field name="file" placeholder="file.csv" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
-                         <div class="oe_title">
-                            <label for="file_mime_type"/>
+                         <div>
+                            <label for="file_mime_type" class="o_td_label"/>
                             <h1>
-                                <field name="file_mime_type"/>
+                                <field name="file_mime_type" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
-                            <label for="target_folder_id"/>
+                        <div>
+                            <label for="target_folder_id" class="o_td_label"/>
                             <h1>
-                                <field name="target_folder_id" placeholder="34KORMNWFJOWNEF232EWMDKOWME"/>
+                                <field name="target_folder_id" placeholder="34KORMNWFJOWNEF232EWMDKOWME" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
-                            <label for="target_file_name"/>
+                        <div>
+                            <label for="target_file_name" class="o_td_label"/>
                             <h1>
-                                <field name="target_file_name" placeholder="file name"/>
+                                <field name="target_file_name" placeholder="file name" class="o_form_label o_required_modifier"/>
                             </h1>
                         </div>
-                        <div class="oe_title">
-                            <label for="convet_to_google_format"/>
-                            <h1>
-                                <field name="convet_to_google_format"/>
-                            </h1>
+                        <div>
+                            <label for="convet_to_google_format" class="o_td_label"/>
+                            
+                                <field name="convet_to_google_format" class="o_form_label o_required_modifier"/>
+                            
                         </div>
                         
                     </sheet>
