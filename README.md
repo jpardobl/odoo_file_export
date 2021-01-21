@@ -35,7 +35,7 @@ Next, you need to enable a Storage Account:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal
 
-**Keep the Storage Account Url, you will need it to configure a blob uploader in Odoo.
+**Keep the Storage Account Url, you will need it to configure a blob uploader in Odoo.**
 
 Also, you need to create a *container* inside the Storage Account to host the blob. 
 
@@ -57,7 +57,7 @@ selv.env['odoo_file_export.blob'].browse(<id>).upload()
 or if you have multiple uploaders.
 ```
 selv.env['odoo_file_export.blob'].search([]).upload()
-'''
+```
   
 ### Testing the module
 
@@ -70,8 +70,10 @@ CREDENTIAL = 'DGFDFGDFG....'
 ```
 
 Launch the following command from the odoo path
+
+
 ```
->>> odoo-bin -c <odoo_config_file_path> --log-level=debug --test-tags=odoo_file_export -d <testing_database_name>
+odoo-bin -c <odoo_config_file_path> --log-level=debug --test-tags=odoo_file_export -d <testing_database_name>
 ```
 
 
