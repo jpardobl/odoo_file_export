@@ -10,14 +10,14 @@ So far it uploads to Azure Blob Storage and Google Drive
 
 **Fields:**
 
-- name The name of the job, just choose a name that help you identify the job later in time.
-- file The name of the file that is going to be uploaded. This file must be at *data_dir* path (from Odoo configuration).
-- storage_account_url The Azure Storage url where the file must be uploaded
-- container The of the container where the file must be uploaded.
-- blob_name The target name of the file, how is it goiung to be identified once at the cloud.
-- credential The Access to the Azure Storage Account.
+- **name** The name of the job, just choose a name that help you identify the job later in time.
+- **file** The name of the file that is going to be uploaded. This file must be at *data_dir* path (from Odoo configuration).
+- **storage_account_url** The Azure Storage url where the file must be uploaded
+- **container** The of the container where the file must be uploaded.
+- **blob_name** The target name of the file, how is it goiung to be identified once at the cloud.
+- **credential** The Access to the Azure Storage Account.
 
-**Brief
+### Brief
 
 Each uploader that is configured is to upload one file. Thus each file can be uploaded to a different Storage Account or container.
 
@@ -29,7 +29,7 @@ The uploader overwrites any posible blob that is already at the container with t
 
 First you need to create an Azure account which is explained here:
 
-https://docs.microsoft.com/es-es/azure/storage/common/storage-account-create?tabs=azure-portal
+https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal
 
 Next, you need to enable a Storage Account:
 
@@ -40,6 +40,10 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-create-account-block
 Also, you need to create a *container* inside the Storage Account to host the blob. 
 
 **Again please keep the contianer name to use it in the blob uploader configuration**
+
+The credentials that you need to write onto Blob Storage are the Storage Account access keys:
+
+https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?tabs=azure-portal
 
 Last, you just need to create a new Blob Uploader in Odoo. Please refer to the previos field explanation to do this configuration.
 
