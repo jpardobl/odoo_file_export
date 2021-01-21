@@ -47,11 +47,11 @@ Yo can use the *Accion->Upload* in Odoo UI once selected the newly created Blob 
 
 Also you can upload by code as follows:
 
-'''
+```
 selv.env['odoo_file_export.blob'].browse(<id>).upload()
-'''
+```
 or if you have multiple uploaders.
-'''
+```
 selv.env['odoo_file_export.blob'].search([]).upload()
 '''
   
