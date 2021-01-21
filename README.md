@@ -59,17 +59,16 @@ selv.env['odoo_file_export.blob'].search([]).upload()
 
 Open the file tests/test_blob.py and fill in the Azure Service access detail.
 
-'''
+```
 STORAGE_ACCOUNT_URL = 'https://.....'
 CONTAINER = '.............'
 CREDENTIAL = 'DGFDFGDFG....'
-'''
+```
 
 Launch the following command from the odoo path
-
-'''
+```
 >>> odoo-bin -c <odoo_config_file_path> --log-level=debug --test-tags=odoo_file_export -d <testing_database_name>
-'''
+```
 
 
 
